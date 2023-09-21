@@ -1,4 +1,5 @@
 #pragma once
+#include "frmMantenimientoEstacionPesaje.h"
 
 namespace EstacionPesajeView {
 
@@ -81,6 +82,7 @@ namespace EstacionPesajeView {
 			this->proyectoToolStripMenuItem->Name = L"proyectoToolStripMenuItem";
 			this->proyectoToolStripMenuItem->Size = System::Drawing::Size(270, 34);
 			this->proyectoToolStripMenuItem->Text = L"Proyecto";
+			this->proyectoToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmPrincipal::proyectoToolStripMenuItem_Click);
 			// 
 			// frmPrincipal
 			// 
@@ -99,5 +101,10 @@ namespace EstacionPesajeView {
 
 		}
 #pragma endregion
+		private: System::Void proyectoToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+			frmMantenimientoEstacionPesaje^ ventanaMantProyectos = gcnew frmMantenimientoEstacionPesaje();
+			ventanaMantProyectos->MdiParent = this;
+			ventanaMantProyectos->Show();
+		}
 	};
 }
