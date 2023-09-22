@@ -1,11 +1,14 @@
 #pragma once
 
-public ref class BarreraVehicular {
-    private: 
-        int codigo;
-        bool estado;
+namespace EstacionPesajeModel {
     
-    public:
-        BarreraVehicular();
-        BarreraVehicular(int codigo, bool estado);
-};
+    public ref class BarreraVehicular {
+        private:
+            int codigo;
+            bool estado;
+
+        public:
+            BarreraVehicular();
+            BarreraVehicular(int codigo, bool estado);
+    };
+}

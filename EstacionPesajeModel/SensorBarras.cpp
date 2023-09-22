@@ -1,5 +1,7 @@
 #include "SensorBarras.h"
 
+using namespace EstacionPesajeModel;
+
 SensorBarras::SensorBarras() {
 
 }

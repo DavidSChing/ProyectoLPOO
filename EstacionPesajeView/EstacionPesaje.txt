@@ -1,0 +1,5 @@
+1;San Miguel;S13°0'45";O73°58'50.99
+2;San Borja;12° 6' 26;O76° 59' 57
+3;Miraflores;S16° 23' 42;O71° 31' 17
+4;Barranco;S12° 08′ 42;O77° 01'15
+5;San Isidro;N00° 39' 35;O78° 02' 10

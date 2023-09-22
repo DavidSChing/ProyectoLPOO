@@ -116,6 +116,12 @@
       <Project>{86bc3f38-fa81-40c5-878f-c63c766a29ab}</Project>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="EstacionPesajeController.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="EstacionPesajeController.cpp" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
