@@ -1,7 +1,5 @@
 #include "Vehiculo.h"
 
-using namespace EstacionPesajeModel;
-
 Vehiculo::Vehiculo() {
 
 }

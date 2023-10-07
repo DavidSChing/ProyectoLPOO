@@ -1,7 +1,5 @@
 #include "PantallaLCD.h"
 
-using namespace EstacionPesajeModel;
-
 PantallaLCD::PantallaLCD() {
 
 }

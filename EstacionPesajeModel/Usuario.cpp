@@ -1,7 +1,5 @@
 #include "Usuario.h"
 
-using namespace EstacionPesajeModel;
-
 Usuario::Usuario() : Persona() {
 
 }

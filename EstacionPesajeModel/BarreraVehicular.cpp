@@ -1,7 +1,5 @@
 #include "BarreraVehicular.h"
 
-using namespace EstacionPesajeModel;
-
 BarreraVehicular::BarreraVehicular() {
 
 }

@@ -1,7 +1,5 @@
 #include "Persona.h"
 
-using namespace EstacionPesajeModel;
-
 Persona::Persona() {
 
 }

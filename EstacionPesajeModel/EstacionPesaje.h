@@ -11,24 +11,21 @@
 using namespace System;
 using namespace System::Collections::Generic;
 
-namespace EstacionPesajeModel {
+public ref class EstacionPesaje {
+    private: 
+        String^ ubicacion;
+        double latitud;
+        double longitud;
+        List<PantallaLCD^>^ listaPantallaLCD; //Así se representa la composición o agregación
+        List<Vascula^>^ listaVascula;
+        List<SensorBarras^>^ listaSensorBarras;
+        List<BarreraVehicular^>^ listaBarreraVehicular;
 
-    public ref class EstacionPesaje {
-        private:
-            String^ ubicacion;
-            double latitud;
-            double longitud;
-            List<PantallaLCD^>^ listaPantallaLCD; //Así se representa la composición o agregación
-            List<Vascula^>^ listaVascula;
-            List<SensorBarras^>^ listaSensorBarras;
-            List<BarreraVehicular^>^ listaBarreraVehicular;
+        Usuario^ ObjUsuario;
+        PropietarioVehiculo^ objPropietarioVehiculo;
+        PagoTarjeta^ objPagoTarjeta;
 
-            Usuario^ ObjUsuario;
-            PropietarioVehiculo^ objPropietarioVehiculo;
-            PagoTarjeta^ objPagoTarjeta;
-
-        public:
-            EstacionPesaje();
-            EstacionPesaje(String^ ubicacion, double latitud, double longitud, List<PantallaLCD^>^ listaPantallaLCD, List<Vascula^>^ listaVascula, List<SensorBarras^>^ listaSensorBarras, List<BarreraVehicular^>^ listaBarreraVehicular, Usuario^ ObjUsuario, PropietarioVehiculo^ objPropietarioVehiculo, PagoTarjeta^ objPagoTarjeta);
-    };
-}
+    public:
+        EstacionPesaje();
+        EstacionPesaje(String^ ubicacion, double latitud, double longitud, List<PantallaLCD^>^ listaPantallaLCD, List<Vascula^>^ listaVascula, List<SensorBarras^>^ listaSensorBarras, List<BarreraVehicular^>^ listaBarreraVehicular, Usuario^ ObjUsuario, PropietarioVehiculo^ objPropietarioVehiculo, PagoTarjeta^ objPagoTarjeta);
+};

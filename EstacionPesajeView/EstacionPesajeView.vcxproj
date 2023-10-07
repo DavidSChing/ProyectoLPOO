@@ -141,14 +141,6 @@
       <DependentUpon>frmPrincipal.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\EstacionPesajeController\EstacionPesajeController.vcxproj">
-      <Project>{1a8f9cb6-d0d7-4802-ae8b-fdd59846f1c6}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\EstacionPesajeModel\EstacionPesajeModel.vcxproj">
-      <Project>{86bc3f38-fa81-40c5-878f-c63c766a29ab}</Project>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

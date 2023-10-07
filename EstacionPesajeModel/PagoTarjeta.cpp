@@ -1,7 +1,5 @@
 #include "PagoTarjeta.h"
 
-using namespace EstacionPesajeModel;
-
 PagoTarjeta::PagoTarjeta() {
 
 }
