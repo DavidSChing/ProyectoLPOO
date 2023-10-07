@@ -1,4 +1,4 @@
-#include "frmPrincipal.h"
+#include"frmPrincipal.h"
 
 using namespace System;
 using namespace System::Windows::Forms;

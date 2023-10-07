@@ -1,5 +1,8 @@
 #include "EstacionPesaje.h"
 
+using namespace EstacionPesajeModel;
+
+
 EstacionPesaje::EstacionPesaje() {
 
 }

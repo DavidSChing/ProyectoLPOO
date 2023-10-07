@@ -1,5 +1,7 @@
 #include "Vascula.h"
 
+using namespace EstacionPesajeModel;
+
 Vascula::Vascula() {
 
 }

@@ -112,6 +112,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="EstacionController.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="EstacionController.cpp" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\EstacionPesajeModel\EstacionPesajeModel.vcxproj">
       <Project>{86bc3f38-fa81-40c5-878f-c63c766a29ab}</Project>
     </ProjectReference>
