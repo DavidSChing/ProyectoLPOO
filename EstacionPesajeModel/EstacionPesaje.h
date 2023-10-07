@@ -33,7 +33,8 @@ namespace EstacionPesajeModel {
     public:
         EstacionPesaje();
         EstacionPesaje(int codigo, String^ ubicacion, double latitud, double longitud, List<PantallaLCD^>^ listaPantallaLCD, List<Vascula^>^ listaVascula, List<SensorBarras^>^ listaSensorBarras, List<BarreraVehicular^>^ listaBarreraVehicular, Usuario^ ObjUsuario, PropietarioVehiculo^ objPropietarioVehiculo, Tarjeta^ objTarjeta);
-        
+        EstacionPesaje(int codigo, String^ ubicacion, double latitud, double longitud);
+
         int getCodigo();
         void setCodigo(int codigo);
 

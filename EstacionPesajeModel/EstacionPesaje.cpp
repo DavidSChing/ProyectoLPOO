@@ -20,13 +20,19 @@ EstacionPesaje::EstacionPesaje(int codigo, String^ ubicacion, double latitud, do
 	this->objTarjeta = objTarjeta;
 }
 
+EstacionPesaje::EstacionPesaje(int codigo, String^ ubicacion, double latitud, double longitud) {
+	this->codigo = codigo;
+	this->ubicacion = ubicacion;
+	this->latitud = latitud;
+	this->longitud = longitud;
+};
+
 /*Las pripiedades son métodos que nos permiten acceder y modificar
         un atributo. Son los famosos GET y SET y se hace uno por cada atributo*/
 
 int EstacionPesaje::getCodigo() {
     return this->codigo;
 }
-
 void EstacionPesaje::setCodigo(int codigo) {
     this->codigo = codigo;
 }
@@ -34,7 +40,6 @@ void EstacionPesaje::setCodigo(int codigo) {
 String^ EstacionPesaje::getUbicacion() {
     return this->ubicacion;
 }
-
 void EstacionPesaje::setUbicacion(String^ ubicacion) {
     this->ubicacion = ubicacion;
 }
