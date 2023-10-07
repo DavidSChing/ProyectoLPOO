@@ -2,8 +2,10 @@
 
 using namespace System;
 
-public ref class Vehiculo {
-    private: 
+namespace EstacionPesajeModel {
+
+    public ref class Vehiculo {
+    private:
         int pesoSinCarga;
         int pesoConCarga;
         int pesoActual;
@@ -13,4 +15,5 @@ public ref class Vehiculo {
     public:
         Vehiculo();
         Vehiculo(int pesoSinCarga, int pesoConCarga, int pesoActual, String^ placa, String^ tipoVehiculo);
-};
+    };
+}

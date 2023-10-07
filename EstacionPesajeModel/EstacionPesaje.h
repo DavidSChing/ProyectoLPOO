@@ -11,8 +11,10 @@
 using namespace System;
 using namespace System::Collections::Generic;
 
-public ref class EstacionPesaje {
-    private: 
+namespace EstacionPesajeModel {
+
+    public ref class EstacionPesaje {
+    private:
         String^ ubicacion;
         double latitud;
         double longitud;
@@ -28,4 +30,5 @@ public ref class EstacionPesaje {
     public:
         EstacionPesaje();
         EstacionPesaje(String^ ubicacion, double latitud, double longitud, List<PantallaLCD^>^ listaPantallaLCD, List<Vascula^>^ listaVascula, List<SensorBarras^>^ listaSensorBarras, List<BarreraVehicular^>^ listaBarreraVehicular, Usuario^ ObjUsuario, PropietarioVehiculo^ objPropietarioVehiculo, PagoTarjeta^ objPagoTarjeta);
-};
+    };
+}
