@@ -1,5 +1,7 @@
 #include "PropietarioVehiculo.h"
 
+using namespace EstacionPesajeModel;
+
 PropietarioVehiculo::PropietarioVehiculo() : Persona() {
 
 }
