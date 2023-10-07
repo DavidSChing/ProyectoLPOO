@@ -46,6 +46,10 @@ namespace EstacionPesajeView {
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Button^ button3;
 	private: System::Windows::Forms::Button^ button4;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column1;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column2;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column4;
 	protected:
 
 	private:
@@ -69,6 +73,10 @@ namespace EstacionPesajeView {
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button4 = (gcnew System::Windows::Forms::Button());
+			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->groupBox1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
@@ -98,7 +106,7 @@ namespace EstacionPesajeView {
 			// comboBox1
 			// 
 			this->comboBox1->FormattingEnabled = true;
-			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Lambayeque", L"Lima" });
+			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Lambayeque", L"Lima", L"Yurimaguas" });
 			this->comboBox1->Location = System::Drawing::Point(152, 32);
 			this->comboBox1->Name = L"comboBox1";
 			this->comboBox1->Size = System::Drawing::Size(125, 28);
@@ -117,6 +125,10 @@ namespace EstacionPesajeView {
 			// dataGridView1
 			// 
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(4) {
+				this->Column1,
+					this->Column2, this->Column3, this->Column4
+			});
 			this->dataGridView1->Location = System::Drawing::Point(55, 212);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersWidth = 62;
@@ -151,6 +163,34 @@ namespace EstacionPesajeView {
 			this->button4->Text = L"Eliminar";
 			this->button4->UseVisualStyleBackColor = true;
 			// 
+			// Column1
+			// 
+			this->Column1->HeaderText = L"Código";
+			this->Column1->MinimumWidth = 8;
+			this->Column1->Name = L"Column1";
+			this->Column1->Width = 150;
+			// 
+			// Column2
+			// 
+			this->Column2->HeaderText = L"Ubicacion";
+			this->Column2->MinimumWidth = 8;
+			this->Column2->Name = L"Column2";
+			this->Column2->Width = 150;
+			// 
+			// Column3
+			// 
+			this->Column3->HeaderText = L"Latitud";
+			this->Column3->MinimumWidth = 8;
+			this->Column3->Name = L"Column3";
+			this->Column3->Width = 150;
+			// 
+			// Column4
+			// 
+			this->Column4->HeaderText = L"Longitud";
+			this->Column4->MinimumWidth = 8;
+			this->Column4->Name = L"Column4";
+			this->Column4->Width = 150;
+			// 
 			// frmMantenimientoEstacionPesaje
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
@@ -182,20 +222,16 @@ namespace EstacionPesajeView {
 		mostrarGrilla(listaEstacionPesaje);
 	}
 
-	private: void mostrarGrilla(List<EstacionPesaje^>^ listaEstaciones) {
+	private: void mostrarGrilla(List<EstacionPesaje^>^ listaEstacionPesaje) {
 		this->dataGridView1->Rows->Clear(); /*Elimino toda la informacion del datagrid*/
-
-		for (int i = 0; i < listaEstaciones->Count; i++) {
-
-			EstacionPesaje^ objEstacion = listaEstaciones[i];
-
-			array<String^>^ filaGrilla = gcnew array<String^>(5);
-
-			filaGrilla[0] = objEstacion->getUbicacion();
-
-			filaGrilla[1] = Convert::ToString(objEstacion->getLatitud());
-
-			filaGrilla[2] = Convert::ToString(objEstacion->getLongitud());
+		for (int i = 0; i < listaEstacionPesaje->Count; i++) {
+			EstacionPesaje^ objEstacion = listaEstacionPesaje[i];
+			/*Esta filaGrilla representa una fila del data grid de la pantalla*/
+			array<String^>^ filaGrilla = gcnew array<String^>(4);
+			filaGrilla[0] = Convert::ToString(objEstacion->getCodigo());
+			filaGrilla[1] = objEstacion->getUbicacion();
+			filaGrilla[2] = Convert::ToString(objEstacion->getLatitud());
+			filaGrilla[3] = Convert::ToString(objEstacion->getLongitud());
 
 			this->dataGridView1->Rows->Add(filaGrilla);
 
