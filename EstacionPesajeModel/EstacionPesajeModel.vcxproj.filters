@@ -18,7 +18,7 @@
     <ClInclude Include="EstacionPesaje.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="PagoTarjeta.h">
+    <ClInclude Include="Tarjeta.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="PantallaLCD.h">
@@ -50,7 +50,7 @@
     <ClCompile Include="EstacionPesaje.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="PagoTarjeta.cpp">
+    <ClCompile Include="Tarjeta.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="PantallaLCD.cpp">

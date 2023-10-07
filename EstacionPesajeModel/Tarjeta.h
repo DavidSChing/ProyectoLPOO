@@ -2,13 +2,13 @@
 
 namespace EstacionPesajeModel {
 
-    public ref class PagoTarjeta {
+    public ref class Tarjeta {
     private:
         int codigo;
         bool estado;
 
     public:
-        PagoTarjeta();
-        PagoTarjeta(int codigo, bool estado);
+        Tarjeta();
+        Tarjeta(int codigo, bool estado);
     };
 }

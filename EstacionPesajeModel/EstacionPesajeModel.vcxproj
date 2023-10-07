@@ -114,7 +114,7 @@
   <ItemGroup>
     <ClInclude Include="BarreraVehicular.h" />
     <ClInclude Include="EstacionPesaje.h" />
-    <ClInclude Include="PagoTarjeta.h" />
+    <ClInclude Include="Tarjeta.h" />
     <ClInclude Include="PantallaLCD.h" />
     <ClInclude Include="Persona.h" />
     <ClInclude Include="PropietarioVehiculo.h" />
@@ -126,7 +126,7 @@
   <ItemGroup>
     <ClCompile Include="BarreraVehicular.cpp" />
     <ClCompile Include="EstacionPesaje.cpp" />
-    <ClCompile Include="PagoTarjeta.cpp" />
+    <ClCompile Include="Tarjeta.cpp" />
     <ClCompile Include="PantallaLCD.cpp" />
     <ClCompile Include="Persona.cpp" />
     <ClCompile Include="PropietarioVehiculo.cpp" />

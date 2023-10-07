@@ -9,6 +9,10 @@ namespace EstacionPesajeView {
 	using namespace System::Data;
 	using namespace System::Drawing;
 
+	using namespace EstacionPesajeController;
+	using namespace System::Collections::Generic;
+	using namespace EstacionPesajeModel;
+
 	/// <summary>
 	/// Resumen de frmMantenimientoEstacionPesaje
 	/// </summary>
@@ -89,10 +93,12 @@ namespace EstacionPesajeView {
 			this->button1->TabIndex = 2;
 			this->button1->Text = L"Buscar";
 			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &frmMantenimientoEstacionPesaje::button1_Click);
 			// 
 			// comboBox1
 			// 
 			this->comboBox1->FormattingEnabled = true;
+			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Lambayeque", L"Lima" });
 			this->comboBox1->Location = System::Drawing::Point(152, 32);
 			this->comboBox1->Name = L"comboBox1";
 			this->comboBox1->Size = System::Drawing::Size(125, 28);
@@ -169,5 +175,31 @@ namespace EstacionPesajeView {
  	}
 	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
-	};
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+ 		String^ ubicacion = this->comboBox1->Text; /*De esta forma obtengo el tecto que selecciono en el comboBox*/
+		EstacionController^ objEstacionController = gcnew EstacionController();
+		List<EstacionPesaje^>^ listaEstacionPesaje = objEstacionController->buscarEstacionPesaje(ubicacion);
+		mostrarGrilla(listaEstacionPesaje);
+	}
+
+	private: void mostrarGrilla(List<EstacionPesaje^>^ listaEstaciones) {
+		this->dataGridView1->Rows->Clear(); /*Elimino toda la informacion del datagrid*/
+
+		for (int i = 0; i < listaEstaciones->Count; i++) {
+
+			EstacionPesaje^ objEstacion = listaEstaciones[i];
+
+			array<String^>^ filaGrilla = gcnew array<String^>(5);
+
+			filaGrilla[0] = objEstacion->getUbicacion();
+
+			filaGrilla[1] = Convert::ToString(objEstacion->getLatitud());
+
+			filaGrilla[2] = Convert::ToString(objEstacion->getLongitud());
+
+			this->dataGridView1->Rows->Add(filaGrilla);
+
+		}
+	}
+};
 }
