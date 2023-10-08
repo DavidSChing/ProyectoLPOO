@@ -141,6 +141,9 @@
     <EmbeddedResource Include="frmMantenimientoEstacionPesaje.resx">
       <DependentUpon>frmMantenimientoEstacionPesaje.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmNuevoProyecto.resx">
+      <DependentUpon>frmNuevoProyecto.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.h</DependentUpon>
     </EmbeddedResource>
