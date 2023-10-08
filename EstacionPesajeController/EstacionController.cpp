@@ -75,3 +75,9 @@ void EstacionController::eliminarEstacionFisico(int codigo) {
 	}
 	escribirArchivo(listaEstacionPesaje);
 }
+
+void EstacionController::agregarEstacionPesaje(EstacionPesaje^ objEstacionPesaje) {
+	List<EstacionPesaje^>^ listaEstacionPesaje = buscarAll();
+	listaEstacionPesaje->Add(objEstacionPesaje);
+	escribirArchivo(listaEstacionPesaje);
+}

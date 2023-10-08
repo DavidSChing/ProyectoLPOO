@@ -24,7 +24,7 @@
     <ClCompile Include="frmMantenimientoEstacionPesaje.cpp">
       <Filter>Archivos de encabezado</Filter>
     </ClCompile>
-    <ClCompile Include="frmNuevoProyecto.cpp">
+    <ClCompile Include="frmNuevaEstacionPesaje.cpp">
       <Filter>Archivos de encabezado</Filter>
     </ClCompile>
   </ItemGroup>
@@ -35,7 +35,7 @@
     <ClInclude Include="frmMantenimientoEstacionPesaje.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="frmNuevoProyecto.h">
+    <ClInclude Include="frmNuevaEstacionPesaje.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

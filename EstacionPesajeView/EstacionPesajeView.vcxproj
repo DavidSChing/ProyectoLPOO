@@ -115,7 +115,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="frmMantenimientoEstacionPesaje.cpp" />
-    <ClCompile Include="frmNuevoProyecto.cpp" />
+    <ClCompile Include="frmNuevaEstacionPesaje.cpp" />
     <ClCompile Include="frmPrincipal.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
@@ -130,7 +130,7 @@
     <ClInclude Include="frmMantenimientoEstacionPesaje.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="frmNuevoProyecto.h">
+    <ClInclude Include="frmNuevaEstacionPesaje.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmPrincipal.h">
@@ -141,8 +141,8 @@
     <EmbeddedResource Include="frmMantenimientoEstacionPesaje.resx">
       <DependentUpon>frmMantenimientoEstacionPesaje.h</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmNuevoProyecto.resx">
-      <DependentUpon>frmNuevoProyecto.h</DependentUpon>
+    <EmbeddedResource Include="frmNuevaEstacionPesaje.resx">
+      <DependentUpon>frmNuevaEstacionPesaje.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.h</DependentUpon>

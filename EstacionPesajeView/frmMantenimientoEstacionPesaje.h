@@ -1,4 +1,5 @@
 #pragma once
+#include "frmNuevaEstacionPesaje.h"
 
 namespace EstacionPesajeView {
 
@@ -172,6 +173,7 @@ namespace EstacionPesajeView {
 			this->button2->TabIndex = 2;
 			this->button2->Text = L"Nuevo";
 			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &frmMantenimientoEstacionPesaje::button2_Click);
 			// 
 			// button3
 			// 
@@ -245,5 +247,9 @@ namespace EstacionPesajeView {
 		objeto->eliminarEstacionFisico(codigoEliminar);
 		MessageBox::Show("La Estacion ha sido eliminado con éxito");
 	}
-	};
+	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+		frmNuevaEstacionPesaje^ ventanaNuevaEstacionPesaje = gcnew frmNuevaEstacionPesaje();
+		ventanaNuevaEstacionPesaje->ShowDialog();
+	}
+};
 }
