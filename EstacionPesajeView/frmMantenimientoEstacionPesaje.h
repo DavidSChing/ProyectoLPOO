@@ -1,5 +1,6 @@
 #pragma once
 #include "frmNuevaEstacionPesaje.h"
+#include "frmEditarEstacionPesaje.h"
 
 namespace EstacionPesajeView {
 
@@ -183,6 +184,7 @@ namespace EstacionPesajeView {
 			this->button3->TabIndex = 3;
 			this->button3->Text = L"Editar";
 			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &frmMantenimientoEstacionPesaje::button3_Click);
 			// 
 			// button4
 			// 
@@ -251,5 +253,16 @@ namespace EstacionPesajeView {
 		frmNuevaEstacionPesaje^ ventanaNuevaEstacionPesaje = gcnew frmNuevaEstacionPesaje();
 		ventanaNuevaEstacionPesaje->ShowDialog();
 	}
+	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+		EstacionController^ objeto;
+		int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index; /*Le pongo [0] porque en este caso estamos asumiendo que solo seleccionamos una fila, por ello es la de la posicion 0*/
+		int codigoEditar = Convert::ToInt32(this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
+		EstacionController^ objEstacionController = gcnew EstacionController();
+		EstacionPesaje^ objEstacionPesaje = objEstacionController->buscarEstacionxCodigo(codigoEditar);
+		frmEditarEstacionPesaje^ ventanaEditarEstacionPesaje = gcnew frmEditarEstacionPesaje(objEstacionPesaje);
+		ventanaEditarEstacionPesaje->ShowDialog();
+		/*Se pone objEstacionPesaje detro de frmEditar ya que se quiere que
+		los datos de ese objeto aparezcan en la ventana desde el inicio*/
+	}	
 };
 }

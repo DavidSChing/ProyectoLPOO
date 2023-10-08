@@ -81,3 +81,12 @@ void EstacionController::agregarEstacionPesaje(EstacionPesaje^ objEstacionPesaje
 	listaEstacionPesaje->Add(objEstacionPesaje);
 	escribirArchivo(listaEstacionPesaje);
 }
+
+EstacionPesaje^ EstacionController::buscarEstacionxCodigo(int codigo) {
+	List<EstacionPesaje^>^ listaEstacionPesaje = buscarAll();
+	for (int i = 0; i < listaEstacionPesaje->Count; i++) {
+		if (listaEstacionPesaje[i]->getCodigo() == codigo) {
+			return listaEstacionPesaje[i];
+		}
+	}
+}

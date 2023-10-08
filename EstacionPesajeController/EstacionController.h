@@ -15,6 +15,7 @@ namespace EstacionPesajeController {
 			void escribirArchivo(List<EstacionPesaje^>^ listaEstacionPesaje);
 			void eliminarEstacionFisico(int codigo);
 			void agregarEstacionPesaje(EstacionPesaje^ objEstacionPesaje);
+			EstacionPesaje^ buscarEstacionxCodigo(int codigo);
 	};
 
 }
