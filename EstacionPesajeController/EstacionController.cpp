@@ -90,3 +90,17 @@ EstacionPesaje^ EstacionController::buscarEstacionxCodigo(int codigo) {
 		}
 	}
 }
+
+void EstacionController::actualizarEstacionPesaje(EstacionPesaje^ objEstacionPesaje) {
+	List<EstacionPesaje^>^ listaEstacionPesaje = buscarAll(); //Se cargan todas las estaciones
+	for (int i = 0; i < listaEstacionPesaje->Count; i++) { //Voy estacion por estacion
+		if (listaEstacionPesaje[i]->getCodigo() == objEstacionPesaje->getCodigo()) { //Si el codigo de la estacion que saco de la lista es igual al codigo de la estacion objEstacionPesaje
+			/*Voy a actualizar cada dato de esa estacion en la lista*/
+			listaEstacionPesaje[i]->setUbicacion(objEstacionPesaje->getUbicacion());
+			listaEstacionPesaje[i]->setLatitud(objEstacionPesaje->getLatitud());
+			listaEstacionPesaje[i]->setLongitud(objEstacionPesaje->getLongitud());
+			break;
+		}
+	}
+	escribirArchivo(listaEstacionPesaje);
+}/*Una vez finalizado esta parte, se dirige a frmEditarEstacionPesaje a culminar la parte de codigo del boton eliminar*/

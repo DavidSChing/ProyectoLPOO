@@ -119,9 +119,9 @@ namespace EstacionPesajeView {
 			this->label1->AutoSize = true;
 			this->label1->Location = System::Drawing::Point(48, 40);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(65, 20);
+			this->label1->Size = System::Drawing::Size(79, 20);
 			this->label1->TabIndex = 0;
-			this->label1->Text = L"Nombre";
+			this->label1->Text = L"Ubicacion";
 			this->label1->Click += gcnew System::EventHandler(this, &frmMantenimientoEstacionPesaje::label1_Click);
 			// 
 			// dataGridView1
@@ -259,7 +259,7 @@ namespace EstacionPesajeView {
 		int codigoEditar = Convert::ToInt32(this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
 		EstacionController^ objEstacionController = gcnew EstacionController();
 		EstacionPesaje^ objEstacionPesaje = objEstacionController->buscarEstacionxCodigo(codigoEditar);
-		frmEditarEstacionPesaje^ ventanaEditarEstacionPesaje = gcnew frmEditarEstacionPesaje(objEstacionPesaje);
+		frmEditarEstacionPesaje^ ventanaEditarEstacionPesaje = gcnew frmEditarEstacionPesaje(objEstacionPesaje); /*Para eliminar este error, revisar la linea 26-32 de frmEditarEstacionPesaje.h*/
 		ventanaEditarEstacionPesaje->ShowDialog();
 		/*Se pone objEstacionPesaje detro de frmEditar ya que se quiere que
 		los datos de ese objeto aparezcan en la ventana desde el inicio*/

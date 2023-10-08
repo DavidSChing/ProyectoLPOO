@@ -9,6 +9,9 @@ namespace EstacionPesajeView {
 	using namespace System::Data;
 	using namespace System::Drawing;
 
+	using namespace EstacionPesajeController;
+	using namespace EstacionPesajeModel;
+
 	/// <summary>
 	/// Resumen de frmEditarEstacionPesaje
 	/// </summary>
@@ -18,6 +21,15 @@ namespace EstacionPesajeView {
 		frmEditarEstacionPesaje(void)
 		{
 			InitializeComponent();
+			//
+			//TODO: agregar código de constructor aquí
+			//
+		}
+
+		frmEditarEstacionPesaje(EstacionPesaje^ objEstacionPesaje) //Este constructor que recibe este parámetro, sirve para que este parámetro le de valor a un atributo
+		{ /*revisar linea 62, se agregó un atributo correspondiente a este parámetro*/
+			InitializeComponent();
+			this->objEstacionPesaje = objEstacionPesaje;
 			//
 			//TODO: agregar código de constructor aquí
 			//
@@ -47,6 +59,8 @@ namespace EstacionPesajeView {
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label1;
 
+	private: EstacionPesaje^ objEstacionPesaje; /*Este atributo lo agregamos porque necesitamos manejar la informacion de las EstacionesPesaje*/
+		   /*No olvidar agregar los namespaces controller y model !!!!!!!*/
 	private:
 		/// <summary>
 		/// Variable del diseñador necesaria.
@@ -82,6 +96,7 @@ namespace EstacionPesajeView {
 			this->button2->TabIndex = 5;
 			this->button2->Text = L"Cancelar";
 			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &frmEditarEstacionPesaje::button2_Click);
 			// 
 			// button1
 			// 
@@ -91,6 +106,7 @@ namespace EstacionPesajeView {
 			this->button1->TabIndex = 4;
 			this->button1->Text = L"Grabar";
 			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &frmEditarEstacionPesaje::button1_Click);
 			// 
 			// groupBox1
 			// 
@@ -132,10 +148,12 @@ namespace EstacionPesajeView {
 			// 
 			// textBox1
 			// 
+			this->textBox1->Enabled = false;
 			this->textBox1->Location = System::Drawing::Point(227, 52);
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(365, 26);
 			this->textBox1->TabIndex = 4;
+			this->textBox1->TextChanged += gcnew System::EventHandler(this, &frmEditarEstacionPesaje::textBox1_TextChanged);
 			// 
 			// label4
 			// 
@@ -183,11 +201,39 @@ namespace EstacionPesajeView {
 			this->Controls->Add(this->groupBox1);
 			this->Name = L"frmEditarEstacionPesaje";
 			this->Text = L"Editar Estacion Pesaje";
+			this->Load += gcnew System::EventHandler(this, &frmEditarEstacionPesaje::frmEditarEstacionPesaje_Load);
 			this->groupBox1->ResumeLayout(false);
 			this->groupBox1->PerformLayout();
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
-	};
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+		int codigoEstacionPesaje = Convert::ToInt32(this->textBox1->Text);
+		String^ ubicacion = this->textBox2->Text;
+		double latitud = Convert::ToDouble(this->textBox3->Text);
+		double longitud = Convert::ToDouble(this->textBox4->Text);
+		/*Esto se haría en caso tenga un cuadro de fecha
+		  String^ fechaInicio = this->DateTimePicker1->Text;*/
+		EstacionPesaje^ objEstacionPesaje = gcnew EstacionPesaje(codigoEstacionPesaje, ubicacion, latitud, longitud);
+		/*El codigo de arriba lo reciclé del boton grabar de frmMantenimiento linea 205-212*/
+		//Se procede a crear un metodo en EstacionPesajeController.h para que reciba la estacion objEstacionPesaje y lo actualice
+		EstacionController^ objEstacionController = gcnew EstacionController();
+		objEstacionController->actualizarEstacionPesaje(objEstacionPesaje);
+		MessageBox::Show("La estacion se ha actualizado con éxito");
+		this->Close();
+	}
+	
+	private: System::Void frmEditarEstacionPesaje_Load(System::Object^ sender, System::EventArgs^ e) {
+		this->textBox1->Text = Convert::ToString(this->objEstacionPesaje->getCodigo());
+		this->textBox2->Text = this->objEstacionPesaje->getUbicacion();
+		this->textBox3->Text = Convert::ToString(this->objEstacionPesaje->getLatitud());
+		this->textBox4->Text = Convert::ToString(this->objEstacionPesaje->getLongitud());
+	}/*Se cambia a string porque es un texto y codigo es un int, analogamente con latitud y longitud*/
+private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->Close();
+	}
+};
 }

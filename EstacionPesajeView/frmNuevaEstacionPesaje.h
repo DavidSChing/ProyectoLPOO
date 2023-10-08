@@ -206,8 +206,8 @@ namespace EstacionPesajeView {
 		String^ ubicacion = this->textBox2->Text;
 		double latitud = Convert::ToDouble(this->textBox3->Text);
 		double longitud = Convert::ToDouble(this->textBox4->Text);
-		/*Esto se haría en caso tenga un cuadro de fecha*/
-		//String^ fechaInicio = this->DateTimePicker1->Text;
+		/*Esto se haría en caso tenga un cuadro de fecha
+		  String^ fechaInicio = this->DateTimePicker1->Text;*/
 
 		EstacionPesaje^ objEstacionPesaje = gcnew EstacionPesaje(codigoEstacionPesaje, ubicacion, latitud, longitud);
 		EstacionController^ objEstacionController = gcnew EstacionController();

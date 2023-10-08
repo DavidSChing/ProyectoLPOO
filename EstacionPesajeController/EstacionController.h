@@ -16,6 +16,7 @@ namespace EstacionPesajeController {
 			void eliminarEstacionFisico(int codigo);
 			void agregarEstacionPesaje(EstacionPesaje^ objEstacionPesaje);
 			EstacionPesaje^ buscarEstacionxCodigo(int codigo);
+			void actualizarEstacionPesaje(EstacionPesaje^ objEstacionPesaje); /*Se procede a implementarlo en controller.cpp*/
 	};
 
 }
