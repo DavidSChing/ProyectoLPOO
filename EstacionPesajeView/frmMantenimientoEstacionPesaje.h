@@ -108,7 +108,6 @@ namespace EstacionPesajeView {
 			// comboBox1
 			// 
 			this->comboBox1->FormattingEnabled = true;
-			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Lambayeque", L"Lima", L"Yurimaguas" });
 			this->comboBox1->Location = System::Drawing::Point(152, 32);
 			this->comboBox1->Name = L"comboBox1";
 			this->comboBox1->Size = System::Drawing::Size(125, 28);
@@ -207,7 +206,7 @@ namespace EstacionPesajeView {
 			this->Controls->Add(this->dataGridView1);
 			this->Controls->Add(this->groupBox1);
 			this->Name = L"frmMantenimientoEstacionPesaje";
-			this->Text = L"s";
+			this->Text = L"frmMantenimientoEstacionPesaje";
 			this->Load += gcnew System::EventHandler(this, &frmMantenimientoEstacionPesaje::frmMantenimientoEstacionPesaje_Load);
 			this->groupBox1->ResumeLayout(false);
 			this->groupBox1->PerformLayout();
@@ -217,7 +216,13 @@ namespace EstacionPesajeView {
 		}
 #pragma endregion
 	private: System::Void frmMantenimientoEstacionPesaje_Load(System::Object^ sender, System::EventArgs^ e) {
- 	}
+		EstacionController^ objEstacionController = gcnew EstacionController();
+		List<String^>^ listaUbicacion = objEstacionController->obtenerUbicacion();
+		this->comboBox1->Items->Clear();
+		for (int i = 0; i < listaUbicacion->Count; i++) {
+			this->comboBox1->Items->Add(listaUbicacion[i]);
+		}
+	}
 	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {

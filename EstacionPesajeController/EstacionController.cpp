@@ -104,3 +104,23 @@ void EstacionController::actualizarEstacionPesaje(EstacionPesaje^ objEstacionPes
 	}
 	escribirArchivo(listaEstacionPesaje);
 }/*Una vez finalizado esta parte, se dirige a frmEditarEstacionPesaje a culminar la parte de codigo del boton eliminar*/
+
+List<String^>^ EstacionController::obtenerUbicacion() {
+	List<EstacionPesaje^>^ listaEstacionPesaje = buscarAll();
+	List<String^>^ listaUbicacion = gcnew List<String^>();
+	for (int i = 0; i < listaEstacionPesaje->Count; i++) {
+		/*Aquí voy a buscar cada ubicacion si ya se encuentra en la lista de ubicaciones*/
+		String^ ubicacion = listaEstacionPesaje[i]->getUbicacion();
+		/*Voy a buscarlo en la listaUbicacion*/
+		int existe = 0;
+		for (int j = 0; j < listaUbicacion->Count; j++) {
+			if (listaUbicacion[j]->Contains(ubicacion)) {
+				existe = 1;
+			}
+		}
+		if (existe == 0) {
+			listaUbicacion->Add(ubicacion);
+		}
+	}
+	return listaUbicacion;
+}
