@@ -34,6 +34,8 @@ namespace EstacionPesajeView {
 				delete components;
 			}
 		}
+	private: System::Windows::Forms::GroupBox^ groupBox1;
+	protected:
 
 	private:
 		/// <summary>
@@ -48,18 +50,32 @@ namespace EstacionPesajeView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
 			this->SuspendLayout();
+			// 
+			// groupBox1
+			// 
+			this->groupBox1->Location = System::Drawing::Point(22, 52);
+			this->groupBox1->Name = L"groupBox1";
+			this->groupBox1->Size = System::Drawing::Size(752, 341);
+			this->groupBox1->TabIndex = 0;
+			this->groupBox1->TabStop = false;
+			this->groupBox1->Text = L"Datos de la Estacion";
 			// 
 			// frmNuevoProyecto
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(833, 438);
+			this->Controls->Add(this->groupBox1);
 			this->Name = L"frmNuevoProyecto";
-			this->Text = L"Nuevo Proyecto";
+			this->Text = L"Nueva Estacion";
+			this->Load += gcnew System::EventHandler(this, &frmNuevoProyecto::frmNuevoProyecto_Load);
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
+	private: System::Void frmNuevoProyecto_Load(System::Object^ sender, System::EventArgs^ e) {
+	}
 	};
 }
