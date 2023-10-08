@@ -115,6 +115,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="frmMantenimientoEstacionPesaje.cpp" />
+    <ClCompile Include="frmNuevoProyecto.cpp" />
     <ClCompile Include="frmPrincipal.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
@@ -127,6 +128,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="frmMantenimientoEstacionPesaje.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmNuevoProyecto.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmPrincipal.h">

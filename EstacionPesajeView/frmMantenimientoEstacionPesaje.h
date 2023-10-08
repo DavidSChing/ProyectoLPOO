@@ -70,13 +70,13 @@ namespace EstacionPesajeView {
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
-			this->button2 = (gcnew System::Windows::Forms::Button());
-			this->button3 = (gcnew System::Windows::Forms::Button());
-			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->button3 = (gcnew System::Windows::Forms::Button());
+			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->groupBox1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
@@ -136,33 +136,6 @@ namespace EstacionPesajeView {
 			this->dataGridView1->Size = System::Drawing::Size(665, 150);
 			this->dataGridView1->TabIndex = 1;
 			// 
-			// button2
-			// 
-			this->button2->Location = System::Drawing::Point(131, 407);
-			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(92, 33);
-			this->button2->TabIndex = 2;
-			this->button2->Text = L"Nuevo";
-			this->button2->UseVisualStyleBackColor = true;
-			// 
-			// button3
-			// 
-			this->button3->Location = System::Drawing::Point(277, 407);
-			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(103, 33);
-			this->button3->TabIndex = 3;
-			this->button3->Text = L"Editar";
-			this->button3->UseVisualStyleBackColor = true;
-			// 
-			// button4
-			// 
-			this->button4->Location = System::Drawing::Point(438, 407);
-			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(81, 33);
-			this->button4->TabIndex = 4;
-			this->button4->Text = L"Eliminar";
-			this->button4->UseVisualStyleBackColor = true;
-			// 
 			// Column1
 			// 
 			this->Column1->HeaderText = L"Código";
@@ -190,6 +163,34 @@ namespace EstacionPesajeView {
 			this->Column4->MinimumWidth = 8;
 			this->Column4->Name = L"Column4";
 			this->Column4->Width = 150;
+			// 
+			// button2
+			// 
+			this->button2->Location = System::Drawing::Point(131, 407);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(92, 33);
+			this->button2->TabIndex = 2;
+			this->button2->Text = L"Nuevo";
+			this->button2->UseVisualStyleBackColor = true;
+			// 
+			// button3
+			// 
+			this->button3->Location = System::Drawing::Point(277, 407);
+			this->button3->Name = L"button3";
+			this->button3->Size = System::Drawing::Size(103, 33);
+			this->button3->TabIndex = 3;
+			this->button3->Text = L"Editar";
+			this->button3->UseVisualStyleBackColor = true;
+			// 
+			// button4
+			// 
+			this->button4->Location = System::Drawing::Point(438, 407);
+			this->button4->Name = L"button4";
+			this->button4->Size = System::Drawing::Size(81, 33);
+			this->button4->TabIndex = 4;
+			this->button4->Text = L"Eliminar";
+			this->button4->UseVisualStyleBackColor = true;
+			this->button4->Click += gcnew System::EventHandler(this, &frmMantenimientoEstacionPesaje::button4_Click);
 			// 
 			// frmMantenimientoEstacionPesaje
 			// 
@@ -237,5 +238,12 @@ namespace EstacionPesajeView {
 
 		}
 	}
-};
+	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
+		EstacionController^ objeto;
+		int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index; /*Le pongo [0] porque en este caso estamos asumiendo que solo seleccionamos una fila, por ello es la de la posicion 0*/
+		int codigoEliminar = Convert::ToInt32(this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
+		objeto->eliminarEstacionFisico(codigoEliminar);
+		MessageBox::Show("La Estacion ha sido eliminado con éxito");
+	}
+	};
 }
