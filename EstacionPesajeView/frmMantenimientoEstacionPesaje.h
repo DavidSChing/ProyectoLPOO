@@ -216,7 +216,7 @@ namespace EstacionPesajeView {
 		}
 #pragma endregion
 	private: System::Void frmMantenimientoEstacionPesaje_Load(System::Object^ sender, System::EventArgs^ e) {
-		EstacionController^ objEstacionController = gcnew EstacionController();
+		EstacionController^ objEstacionController = gcnew EstacionController();//mostrar en el ComboBox las ubicaciones de manera dinámica
 		List<String^>^ listaUbicacion = objEstacionController->obtenerUbicacion();
 		this->comboBox1->Items->Clear();
 		for (int i = 0; i < listaUbicacion->Count; i++) {
@@ -259,7 +259,6 @@ namespace EstacionPesajeView {
 		ventanaNuevaEstacionPesaje->ShowDialog();
 	}
 	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
-		EstacionController^ objeto;
 		int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index; /*Le pongo [0] porque en este caso estamos asumiendo que solo seleccionamos una fila, por ello es la de la posicion 0*/
 		int codigoEditar = Convert::ToInt32(this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
 		EstacionController^ objEstacionController = gcnew EstacionController();
