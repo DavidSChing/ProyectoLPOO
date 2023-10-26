@@ -10,5 +10,11 @@ namespace EstacionPesajeModel {
     public:
         Vascula();
         Vascula(int codigo, int pesoRegistrado);
-    };
+        
+        int getCodigo();
+        void setCodigo(int codigo);
+
+        int getPesoRegistrado();
+        void setPesoRegistrado(int pesoRegistrado);
+    };  
 }
