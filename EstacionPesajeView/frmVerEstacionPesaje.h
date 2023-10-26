@@ -217,12 +217,12 @@ namespace EstacionPesajeView {
 	private: System::Void textBox3_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void panel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
-		Graphics^ objGraphics = e->Graphics;
+		/*Graphics^ objGraphics = e->Graphics;
 		Pen^ objLapiz = gcnew Pen(Color::Black);
 		for (int i = 0; i < this->objEstacionPesaje->getListaVascula()->Count; i++) {
 			Vascula^ objVascula = this->objEstacionPesaje->getListaVascula()[i];
 			objGraphics->DrawRectangle(objLapiz, objVascula->getCodigo()->getPesoRegistrado(), 10, 20); //ver luego del minuto 01:41:10> sesion 11
-		}
+		}*/
 	}
 };
 }

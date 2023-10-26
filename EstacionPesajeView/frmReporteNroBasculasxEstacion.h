@@ -90,11 +90,11 @@ namespace EstacionPesajeView {
 		}
 #pragma endregion
 	private: System::Void frmReporteNroBasculasxEstacion_Load(System::Object^ sender, System::EventArgs^ e) {
-		EstacionController^ objEstacionController = gcnew EstacionController();
+		/*EstacionController^ objEstacionController = gcnew EstacionController();
 		List<EstacionPesaje^>^ listaEstaciones = objEstacionController->buscarAll();
 		for (int i = 0; i < listaEstaciones->Count; i++) {
 			this->chart1->Series["Series1"]->Points->Add(listaEstaciones[i]->getNro)
-		}
+		}*/
 	}
 	};
 }
