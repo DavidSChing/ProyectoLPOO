@@ -46,5 +46,17 @@ namespace EstacionPesajeModel {
 
         double getLongitud();
         void setLongitud(double longitud);
+
+        List<PantallaLCD^>^ getListaPantallaLCD();
+        void setListaPantallaLCD(List<PantallaLCD^>^ lista);
+
+        List<Vascula^>^ getListaVascula();
+        void setListaVascula(List<Vascula^>^ lista);
+
+        List<SensorBarras^>^ getListaSensorBarras();
+        void setListaSensorBarras(List<SensorBarras^>^ lista);
+
+        List<BarreraVehicular^>^ getListaBarreraVehicular();
+        void setListaBarreraVehicular(List<BarreraVehicular^>^ lista);
     };
 }

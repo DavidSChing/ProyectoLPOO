@@ -1,6 +1,7 @@
 #pragma once
 #include "frmNuevaEstacionPesaje.h"
 #include "frmEditarEstacionPesaje.h"
+#include "frmVerEstacionPesaje.h"
 
 namespace EstacionPesajeView {
 
@@ -52,6 +53,7 @@ namespace EstacionPesajeView {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column2;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column4;
+	private: System::Windows::Forms::Button^ button5;
 	protected:
 
 	private:
@@ -79,6 +81,7 @@ namespace EstacionPesajeView {
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button4 = (gcnew System::Windows::Forms::Button());
+			this->button5 = (gcnew System::Windows::Forms::Button());
 			this->groupBox1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
@@ -195,11 +198,22 @@ namespace EstacionPesajeView {
 			this->button4->UseVisualStyleBackColor = true;
 			this->button4->Click += gcnew System::EventHandler(this, &frmMantenimientoEstacionPesaje::button4_Click);
 			// 
+			// button5
+			// 
+			this->button5->Location = System::Drawing::Point(588, 407);
+			this->button5->Name = L"button5";
+			this->button5->Size = System::Drawing::Size(81, 33);
+			this->button5->TabIndex = 5;
+			this->button5->Text = L"Ver";
+			this->button5->UseVisualStyleBackColor = true;
+			this->button5->Click += gcnew System::EventHandler(this, &frmMantenimientoEstacionPesaje::button5_Click);
+			// 
 			// frmMantenimientoEstacionPesaje
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(807, 474);
+			this->Controls->Add(this->button5);
 			this->Controls->Add(this->button4);
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
@@ -268,5 +282,13 @@ namespace EstacionPesajeView {
 		/*Se pone objEstacionPesaje detro de frmEditar ya que se quiere que
 		los datos de ese objeto aparezcan en la ventana desde el inicio*/
 	}	
+	private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
+		int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index; /*Le pongo [0] porque en este caso estamos asumiendo que solo seleccionamos una fila, por ello es la de la posicion 0*/
+		int codigoVer = Convert::ToInt32(this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
+		EstacionController^ objEstacionController = gcnew EstacionController();
+		EstacionPesaje^ objEstacionPesaje = objEstacionController->buscarEstacionxCodigo(codigoVer);
+		frmVerEstacionPesaje^ ventanaVerEstacionPesaje = gcnew frmVerEstacionPesaje(objEstacionPesaje); /*Para eliminar este error, revisar la linea 26-32 de frmEditarEstacionPesaje.h*/
+		ventanaVerEstacionPesaje->ShowDialog();
+	}
 };
 }

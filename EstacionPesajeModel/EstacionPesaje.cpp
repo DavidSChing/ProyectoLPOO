@@ -57,3 +57,31 @@ double EstacionPesaje::getLongitud() {
 void EstacionPesaje::setLongitud(double longitud) {
     this->longitud = longitud;
 }
+
+List<PantallaLCD^>^ EstacionPesaje::getListaPantallaLCD() {
+	return this->listaPantallaLCD;
+}
+void EstacionPesaje::setListaPantallaLCD(List<PantallaLCD^>^ lista) {
+	this->listaPantallaLCD = lista;
+}
+
+List<Vascula^>^ EstacionPesaje::getListaVascula() {
+	return this->listaVascula;
+}
+void EstacionPesaje::setListaVascula(List<Vascula^>^ lista) {
+	this->listaVascula = lista;
+}
+
+List<SensorBarras^>^ EstacionPesaje::getListaSensorBarras() {
+	return this->listaSensorBarras;
+}
+void EstacionPesaje::setListaSensorBarras(List<SensorBarras^>^ lista) {
+	this->listaSensorBarras = lista;
+}
+
+List<BarreraVehicular^>^ EstacionPesaje::getListaBarreraVehicular() {
+	return this->listaBarreraVehicular;
+}
+void EstacionPesaje::setListaBarreraVehicular(List<BarreraVehicular^>^ lista) {
+	this->listaBarreraVehicular = lista;
+}
